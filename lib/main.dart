@@ -41,10 +41,14 @@ class _Home extends State<Home> {
       backgroundColor: Colors.white,
       body: new Container(
         color: Colors.grey,
-        child: Text("Bouffe"),
-        height: MediaQuery.of(context).size.height / 10,
+        height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.height,
         margin: EdgeInsets.only(top: 10.0, right: 10.0, left: 10.0),
+        child: new Container(
+          color: Colors.blue,
+          height: MediaQuery.of(context).size.height / 10,
+          width: MediaQuery.of(context).size.height / 10,
+        ),
       ),
     );
   }
