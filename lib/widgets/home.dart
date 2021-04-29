@@ -22,14 +22,6 @@ class _Home extends State<Home> {
                 return new Profile();
               }));
             }),
-        actions: <Widget>[
-          Column(
-            children: <Widget>[
-              new Text("Nourriture"),
-              new Text("Electroménager"),
-            ],
-          ),
-        ],
         centerTitle: true,
         elevation: 20.0,
         backgroundColor: Colors.orangeAccent,
