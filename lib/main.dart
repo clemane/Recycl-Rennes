@@ -31,12 +31,16 @@ class _Home extends State<Home> {
         title: new Text("Recycl'Rennes"),
         leading: new Icon(Icons.account_box),
         actions: <Widget>[
+          Column(
+            children: <Widget>[
           new Text("Nourriture"),
           new Text("Electroménager"),
+            ],
+          ),
         ],
         centerTitle: true,
         elevation: 20.0,
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.orangeAccent,
       ),
       backgroundColor: Colors.white,
       body: new Container(
