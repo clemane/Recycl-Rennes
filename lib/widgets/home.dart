@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/widgets/bouffe.dart';
+import 'package:flutter_application_2/widgets/electro.dart';
 import 'profile.dart';
 
 class Home extends StatefulWidget {
@@ -28,14 +30,29 @@ class _Home extends State<Home> {
       ),
       backgroundColor: Colors.white,
       body: new Container(
-        color: Colors.grey,
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.height,
-        margin: EdgeInsets.only(top: 10.0, right: 10.0, left: 10.0),
-        child: new Container(
-          color: Colors.blue,
-          height: MediaQuery.of(context).size.height / 10,
-          width: MediaQuery.of(context).size.height / 10,
+        height: 75.0,
+        width: MediaQuery.of(context).size.width,
+        color: Colors.black,
+        child: new Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            new IconButton(
+                icon: Icon(Icons.food_bank, color: Colors.white, size: 50),
+                onPressed: () {
+                  Navigator.push(context,
+                      new MaterialPageRoute(builder: (BuildContext context) {
+                    return new Bouffe();
+                  }));
+                }),
+            new IconButton(
+                icon: Icon(Icons.home, color: Colors.white, size: 50),
+                onPressed: () {
+                  Navigator.push(context,
+                      new MaterialPageRoute(builder: (BuildContext context) {
+                    return new Electro();
+                  }));
+                }),
+          ],
         ),
       ),
     );

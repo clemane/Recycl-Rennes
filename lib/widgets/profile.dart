@@ -24,7 +24,7 @@ class _ProfileState extends State<Profile> {
               padding: EdgeInsets.only(top: 20.0),
               child: CircleAvatar(
                 radius: 70.0,
-                backgroundImage: AssetImage('assets/images/LEMANE.jpg'),
+                backgroundImage: AssetImage('images/LEMANE.jpg'),
               )),
           Padding(
             padding: EdgeInsets.only(top: 15.0),
