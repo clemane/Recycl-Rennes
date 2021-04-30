@@ -61,7 +61,7 @@ class _Home extends State<Home> {
                   ],
                 ),
                 Image.asset(
-                  "images/${post["image"]}",
+                  "assets/images/${post["image"]}",
                   height: double.infinity,
                 )
               ],
