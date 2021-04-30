@@ -1,29 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_application_2/widgets/Autre.dart';
-import 'package:flutter_application_2/widgets/CategorieScroller.dart';
-import 'package:flutter_application_2/widgets/Meuble.dart';
-import 'package:flutter_application_2/widgets/bouffe.dart';
-import 'package:flutter_application_2/widgets/electro.dart';
-import 'Accueil.dart';
-import 'profile.dart';
+import 'constants.dart';
 import 'CategorieScroller.dart';
+import 'profile.dart';
+import 'Autre_Data.dart';
 
-class Home extends StatefulWidget {
+class Autre extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() {
-    return new _Home();
-  }
+  _AutreState createState() => new _AutreState();
 }
 
-class _Home extends State<Home> {
+class _AutreState extends State<Autre> {
   final CategoriesScroller categoriesScroller = CategoriesScroller();
   ScrollController controller = ScrollController();
   bool closeTopContainer = false;
   double topContainer = 0;
 
   void getPostsData() {
-    List<dynamic> responseList = ACCUEIL_DATA;
+    List<dynamic> responseList = AUTRE_DATA;
     List<Widget> listItems = [];
     responseList.forEach((post) {
       listItems.add(Container(
@@ -56,7 +50,7 @@ class _Home extends State<Home> {
                       height: 5,
                     ),
                     Text(
-                      "\ ${post["price"]}",
+                      "\€ ${post["price"]}",
                       style: const TextStyle(
                           fontSize: 25,
                           color: Colors.black,
@@ -94,60 +88,16 @@ class _Home extends State<Home> {
   List<Widget> itemsData = [];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Recycl'Rennes"),
-        leading: new IconButton(
-            icon: Icon(Icons.account_box),
-            onPressed: () {
-              Navigator.push(context,
-                  new MaterialPageRoute(builder: (BuildContext context) {
-                return new Profile();
-              }));
-            }),
-        centerTitle: true,
-        elevation: 20.0,
-        backgroundColor: Colors.orangeAccent,
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.add_shopping_cart_rounded, color: Colors.black),
-            onPressed: () {
-              Navigator.push(context,
-                  new MaterialPageRoute(builder: (BuildContext context) {
-                return new Bouffe();
-              }));
-            },
+        title: Text('Autre'),
+        actions: [
+          Icon(Icons.settings),
+          Padding(
+            padding: EdgeInsets.only(right: 10),
           ),
-          IconButton(
-            icon: Icon(Icons.house, color: Colors.black),
-            onPressed: () {
-              Navigator.push(context,
-                  new MaterialPageRoute(builder: (BuildContext context) {
-                return new Electro();
-              }));
-            },
-          ),
-          IconButton(
-            icon: Icon(Icons.countertops, color: Colors.black),
-            onPressed: () {
-              Navigator.push(context,
-                  new MaterialPageRoute(builder: (BuildContext context) {
-                return new Meuble();
-              }));
-            },
-          ),
-          IconButton(
-            icon: Icon(Icons.keyboard_control_rounded, color: Colors.black),
-            onPressed: () {
-              Navigator.push(context,
-                  new MaterialPageRoute(builder: (BuildContext context) {
-                return new Autre();
-              }));
-            },
-          )
         ],
       ),
-      backgroundColor: Colors.white,
       body: new Container(
         child: Column(
           children: <Widget>[
@@ -185,12 +135,5 @@ class _Home extends State<Home> {
         ),
       ),
     );
-  }
-
-  void getNewScaffold() {
-    Navigator.push(context,
-        new MaterialPageRoute(builder: (BuildContext context) {
-      return new Profile();
-    }));
   }
 }
