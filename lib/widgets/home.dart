@@ -52,7 +52,7 @@ class _Home extends State<Home> {
                       height: 10,
                     ),
                     Text(
-                      "\$ ${post["price"]}",
+                      "\€ ${post["price"]}",
                       style: const TextStyle(
                           fontSize: 25,
                           color: Colors.black,
