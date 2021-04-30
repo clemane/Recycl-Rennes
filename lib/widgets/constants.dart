@@ -1,74 +1,14 @@
 const FOOD_DATA = [
   {
-    "name": "Machine à laver",
-    "brand": "washing machine",
-    "price": 100,
-    "image": "machine.png"
+    "name": "Carottes",
+    "brand": "Dons de Carrefour",
+    "price": " ",
+    "image": "carotte.png"
   },
   {
-    "name": "Lave-linge",
-    "brand": "dishwasher",
-    "price": 200,
-    "image": "lave-linge.png"
-  },
-  {
-    "name": "Machine à laver",
-    "brand": "washing machine",
-    "price": 100,
-    "image": "machine.png"
-  },
-  {
-    "name": "Lave-linge",
-    "brand": "dishwasher",
-    "price": 200,
-    "image": "lave-linge.png"
-  },
-  {
-    "name": "Machine à laver",
-    "brand": "washing machine",
-    "price": 100,
-    "image": "machine.png"
-  },
-  {
-    "name": "Lave-linge",
-    "brand": "dishwasher",
-    "price": 200,
-    "image": "lave-linge.png"
-  },
-  {
-    "name": "Machine à laver",
-    "brand": "washing machine",
-    "price": 100,
-    "image": "machine.png"
-  },
-  {
-    "name": "Lave-linge",
-    "brand": "dishwasher",
-    "price": 200,
-    "image": "lave-linge.png"
-  },
-  {
-    "name": "Machine à laver",
-    "brand": "washing machine",
-    "price": 100,
-    "image": "machine.png"
-  },
-  {
-    "name": "Lave-linge",
-    "brand": "dishwasher",
-    "price": 200,
-    "image": "lave-linge.png"
-  },
-  {
-    "name": "Machine à laver",
-    "brand": "washing machine",
-    "price": 100,
-    "image": "machine.png"
-  },
-  {
-    "name": "Lave-linge",
-    "brand": "dishwasher",
-    "price": 200,
-    "image": "lave-linge.png"
-  },
+    "name": "Pommes de Terre",
+    "brand": "Dons de Carrefour",
+    "price": ' ',
+    "image": "pomme de terre.jpg"
+  }
 ];

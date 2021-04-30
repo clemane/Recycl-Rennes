@@ -48,9 +48,9 @@ class _BouffeState extends State<Bouffe> {
                       height: 5,
                     ),
                     Text(
-                      "\€ ${post["price"]}",
+                      "\ ${post["price"]}",
                       style: const TextStyle(
-                          fontSize: 25,
+                          fontSize: 15,
                           color: Colors.black,
                           fontWeight: FontWeight.bold),
                     )

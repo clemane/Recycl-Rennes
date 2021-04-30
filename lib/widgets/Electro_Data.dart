@@ -1,26 +1,20 @@
 const ELECTRO_DATA = [
   {
     "name": "Machine à laver",
-    "brand": "washing machine",
-    "price": 100,
+    "brand": "Dons de Balus",
+    "price": "nathan.basle@gmail.com",
     "image": "machine.png"
   },
   {
-    "name": "Lave-linge",
-    "brand": "dishwasher",
-    "price": 200,
+    "name": "Lave-Vaisselle",
+    "brand": "Dons de Dobrazil",
+    "price": "theo.gravec@gmail.com",
     "image": "lave-linge.png"
   },
   {
-    "name": "Machine à laver",
-    "brand": "washing machine",
-    "price": 100,
-    "image": "machine.png"
-  },
-  {
-    "name": "Lave-linge",
-    "brand": "dishwasher",
-    "price": 200,
-    "image": "lave-linge.png"
+    "name": "Réfrigérateur",
+    "brand": "Dons de Lemane",
+    "price": "clement.lemane@gmail.com",
+    "image": "frigo.png"
   }
 ];

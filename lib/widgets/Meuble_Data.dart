@@ -1,26 +1,14 @@
 const MEUBLE_DATA = [
   {
-    "name": "Machine à laver",
-    "brand": "washing machine",
-    "price": 100,
-    "image": "machine.png"
+    "name": "Table à manger",
+    "brand": "Dons de Theo",
+    "price": "theo.gravec@gmail.com",
+    "image": "table.png"
   },
   {
-    "name": "Lave-linge",
-    "brand": "dishwasher",
-    "price": 200,
-    "image": "lave-linge.png"
-  },
-  {
-    "name": "Machine à laver",
-    "brand": "washing machine",
-    "price": 100,
-    "image": "machine.png"
-  },
-  {
-    "name": "Lave-linge",
-    "brand": "dishwasher",
-    "price": 200,
-    "image": "lave-linge.png"
+    "name": "Armoire",
+    "brand": "Don de Nathan",
+    "price": "nathan.basles@gmail.com",
+    "image": "armoir.png"
   }
 ];

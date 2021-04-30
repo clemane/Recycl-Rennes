@@ -1,3 +1,8 @@
 const AUTRE_DATA = [
-  {"name": "Vélo", "brand": "neuf", "price": 100, "image": "vélo.jpg"},
+  {
+    "name": "Vélo",
+    "brand": "Dons de Lemane",
+    "price": "clement.lemane@gmail.com",
+    "image": "vélo.jpg"
+  },
 ];
