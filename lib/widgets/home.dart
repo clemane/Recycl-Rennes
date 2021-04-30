@@ -154,6 +154,7 @@ class _Home extends State<Home> {
             const SizedBox(
               height: 10,
             ),
+            Text("Alternatives sur Rennes pour limiter le gaspillage"),
             Expanded(
                 child: ListView.builder(
                     controller: controller,
