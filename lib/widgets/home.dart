@@ -49,7 +49,7 @@ class _Home extends State<Home> {
                       style: const TextStyle(fontSize: 17, color: Colors.grey),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 5,
                     ),
                     Text(
                       "\€ ${post["price"]}",
@@ -110,7 +110,7 @@ class _Home extends State<Home> {
             onPressed: () {
               Navigator.push(context,
                   new MaterialPageRoute(builder: (BuildContext context) {
-                return new Electro();
+                return new Bouffe();
               }));
             },
           ),
@@ -119,7 +119,7 @@ class _Home extends State<Home> {
             onPressed: () {
               Navigator.push(context,
                   new MaterialPageRoute(builder: (BuildContext context) {
-                return new Bouffe();
+                return new Electro();
               }));
             },
           )
@@ -191,7 +191,7 @@ class CategoriesScroller extends StatelessWidget {
           child: Row(
             children: <Widget>[
               Container(
-                width: 150,
+                width: 100,
                 margin: EdgeInsets.only(right: 20),
                 height: categoryHeight,
                 decoration: BoxDecoration(

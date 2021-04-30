@@ -1,8 +1,37 @@
 import 'package:flutter/material.dart';
+import 'profile_data.dart';
 
 class Profile extends StatefulWidget {
   @override
   _ProfileState createState() => new _ProfileState();
+}
+
+void getProfilData() {
+  List<dynamic> profilList = PROFIL_DATA;
+  List<Widget> listItems = [];
+  profilList.forEach((post) {
+    listItems.add(
+      Center(
+        child: new Column(
+          children: <Widget>[
+            Container(
+                padding: EdgeInsets.only(top: 20.0),
+                child: CircleAvatar(
+                  radius: 70.0,
+                  backgroundImage: AssetImage("images/${post["image"]}"),
+                )),
+            Padding(
+              padding: EdgeInsets.only(top: 15.0),
+            ),
+            Text(
+              post["name"],
+              style: TextStyle(fontSize: 25),
+            )
+          ],
+        ),
+      ),
+    );
+  });
 }
 
 class _ProfileState extends State<Profile> {
