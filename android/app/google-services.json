@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "151381621871",
+    "project_id": "recycl-rennes",
+    "storage_bucket": "recycl-rennes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:151381621871:android:127679395863ffec3e219a",
+        "android_client_info": {
+          "package_name": "com.tipe.Recycl_Rennes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "151381621871-a3j23f59hpr3ljf5vhr61f5kufjfgnef.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlVQBDZsllxCivRDd09Si1TAImPhxy77w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "151381621871-a3j23f59hpr3ljf5vhr61f5kufjfgnef.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
