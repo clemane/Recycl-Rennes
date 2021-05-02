@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/widgets/home.dart';
-import 'profile.dart';
 
 class Connexion extends StatefulWidget {
   @override
@@ -10,9 +9,11 @@ class Connexion extends StatefulWidget {
 class _ConnexionState extends State<Connexion> {
   bool secret = true;
   final RegExp emailRegex = RegExp(r"[a-z0-9\._-]+@[a-z0-9\._-]+\.[a-z]+");
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> emailKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> passwordKey = GlobalKey<FormState>();
 
-  String email;
+  String email = '';
+  String password = '';
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +30,9 @@ class _ConnexionState extends State<Connexion> {
           SizedBox(
             height: 30,
           ),
+          Text('Email'),
           Form(
-            key: formKey,
+            key: emailKey,
             child: TextFormField(
               onChanged: (value) => setState(() => email = value),
               validator: (value) => value.isEmpty || !emailRegex.hasMatch(value)
@@ -43,19 +45,28 @@ class _ConnexionState extends State<Connexion> {
           SizedBox(
             height: 20,
           ),
-          TextFormField(
-            obscureText: secret,
-            decoration: InputDecoration(
-                suffixIcon: InkWell(
-                  onTap: () => setState(() => secret = !secret),
-                  child: Icon(secret ? Icons.visibility : Icons.visibility_off),
-                ),
-                hintText: 'Entrez votre mot de passe',
-                border: OutlineInputBorder()),
-          ),
+          Text('Mot de passe'),
+          Form(
+              key: passwordKey,
+              child: TextFormField(
+                onChanged: (value) => setState(() => email = value),
+                validator: (value) => value.length < 6
+                    ? 'Entrez un mot de passe d\'au moins 6 caractères'
+                    : null,
+                obscureText: secret,
+                decoration: InputDecoration(
+                    suffixIcon: InkWell(
+                      onTap: () => setState(() => secret = !secret),
+                      child: Icon(
+                          secret ? Icons.visibility : Icons.visibility_off),
+                    ),
+                    hintText: 'Entrez votre mot de passe',
+                    border: OutlineInputBorder()),
+              )),
           ElevatedButton(
             onPressed: () {
-              if (formKey.currentState.validate())
+              if (emailKey.currentState.validate() &&
+                  passwordKey.currentState.validate())
                 Navigator.push(context,
                     new MaterialPageRoute(builder: (BuildContext context) {
                   return new Home();
