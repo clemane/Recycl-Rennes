@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/widgets/connexion.dart';
 import 'home.dart';
 
 class MyApp extends StatelessWidget {
@@ -8,7 +9,7 @@ class MyApp extends StatelessWidget {
       title: "Recycl'Rennes",
       theme: new ThemeData(primarySwatch: Colors.blueGrey),
       debugShowCheckedModeBanner: false,
-      home: new Home(),
+      home: new Connexion(),
     );
   }
 }
