@@ -1,11 +1,22 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'widgets/my_app.dart';
+
+import 'widgets/connexion.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   await Firebase.initializeApp();
-
   runApp(new MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: "Recycl'Rennes",
+      theme: new ThemeData(primarySwatch: Colors.blueGrey),
+      debugShowCheckedModeBanner: false,
+      home: new Connexion(),
+    );
+  }
 }

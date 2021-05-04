@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/widgets/home.dart';
+import 'package:flutter_application_2/widgets/userModel.dart';
 
 class Connexion extends StatefulWidget {
   @override
@@ -11,9 +13,12 @@ class _ConnexionState extends State<Connexion> {
   final RegExp emailRegex = RegExp(r"[a-z0-9\._-]+@[a-z0-9\._-]+\.[a-z]+");
   final GlobalKey<FormState> emailKey = GlobalKey<FormState>();
   final GlobalKey<FormState> passwordKey = GlobalKey<FormState>();
+  final auth = FirebaseAuth.instance;
 
-  String email = '';
-  String password = '';
+  UserModel userModel;
+
+  String _email = '';
+  String _password = '';
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +39,7 @@ class _ConnexionState extends State<Connexion> {
           Form(
             key: emailKey,
             child: TextFormField(
-              onChanged: (value) => setState(() => email = value),
+              onChanged: (value) => setState(() => _email = value),
               validator: (value) => value.isEmpty || !emailRegex.hasMatch(value)
                   ? 'Merci de rentrer un email valide'
                   : null,
@@ -49,7 +54,7 @@ class _ConnexionState extends State<Connexion> {
           Form(
               key: passwordKey,
               child: TextFormField(
-                onChanged: (value) => setState(() => email = value),
+                onChanged: (value) => setState(() => _password = value),
                 validator: (value) => value.length < 6
                     ? 'Entrez un mot de passe d\'au moins 6 caractères'
                     : null,
@@ -66,11 +71,14 @@ class _ConnexionState extends State<Connexion> {
           ElevatedButton(
             onPressed: () {
               if (emailKey.currentState.validate() &&
-                  passwordKey.currentState.validate())
+                  passwordKey.currentState.validate()) {
+                auth.createUserWithEmailAndPassword(
+                    email: _email, password: _password);
                 Navigator.push(context,
                     new MaterialPageRoute(builder: (BuildContext context) {
                   return new Home();
                 }));
+              }
             },
             child: Text('CONTINUER'),
           ),
