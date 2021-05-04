@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/widgets/connexion.dart';
-import 'home.dart';
+import 'connexion.dart';
 
 class MyApp extends StatelessWidget {
   @override
