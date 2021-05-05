@@ -69,6 +69,7 @@ class _ConnexionState extends State<Connexion> {
                       child: TextFormField(
                         onChanged: (value) => setState(() => _password = value),
                         validator: (value) => value.length < 6
+                            // Ajoouter si le mdp est différent
                             ? 'Entrez un mot de passe d\'au moins 6 caractères'
                             : null,
                         obscureText: secret,

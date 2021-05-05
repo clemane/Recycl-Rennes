@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/widgets/start.dart';
 import 'profile_data.dart';
 
 class Profile extends StatefulWidget {
@@ -41,7 +43,17 @@ class _ProfileState extends State<Profile> {
       appBar: new AppBar(
         title: Text('Votre profil'),
         actions: [
-          Icon(Icons.settings),
+          IconButton(
+            icon: Icon(Icons.settings),
+            onPressed: () {
+              FirebaseAuth.instance.signOut();
+              print('Déconnexion...');
+              Navigator.push(context,
+                  new MaterialPageRoute(builder: (BuildContext context) {
+                return Start();
+              }));
+            },
+          ),
           Padding(
             padding: EdgeInsets.only(right: 10),
           ),
