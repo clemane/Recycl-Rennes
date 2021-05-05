@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
-import 'widgets/connexion.dart';
+import 'package:flutter_application_2/widgets/start.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: "Recycl'Rennes",
       theme: new ThemeData(primarySwatch: Colors.blueGrey),
       debugShowCheckedModeBanner: false,
-      home: new Connexion(),
+      home: new Start(),
     );
   }
 }

@@ -4,12 +4,12 @@ import 'package:flutter_application_2/widgets/home.dart';
 import 'package:flutter_application_2/widgets/start.dart';
 import 'package:flutter_application_2/widgets/userModel.dart';
 
-class Connexion extends StatefulWidget {
+class Inscription extends StatefulWidget {
   @override
-  _ConnexionState createState() => _ConnexionState();
+  _InscriptionState createState() => _InscriptionState();
 }
 
-class _ConnexionState extends State<Connexion> {
+class _InscriptionState extends State<Inscription> {
   bool secret = true;
   final RegExp emailRegex = RegExp(r"[a-z0-9\._-]+@[a-z0-9\._-]+\.[a-z]+");
   final GlobalKey<FormState> emailKey = GlobalKey<FormState>();
@@ -20,6 +20,7 @@ class _ConnexionState extends State<Connexion> {
 
   String _email = '';
   String _password = '';
+  String _pseudo = '';
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +47,20 @@ class _ConnexionState extends State<Connexion> {
                   SizedBox(
                     height: 30,
                   ),
-                  Text('Email'),
+                  Form(
+                    child: TextFormField(
+                      onChanged: (value) => setState(() => _pseudo = value),
+                      validator: (value) => value.isEmpty
+                          ? 'Merci de rentrer un nom d\'utilisateur'
+                          : null,
+                      decoration: InputDecoration(
+                          hintText: 'Entrez votre nom d\'utilisateur',
+                          border: OutlineInputBorder()),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Form(
                     key: emailKey,
                     child: TextFormField(
@@ -63,7 +77,6 @@ class _ConnexionState extends State<Connexion> {
                   SizedBox(
                     height: 20,
                   ),
-                  Text('Mot de passe'),
                   Form(
                       key: passwordKey,
                       child: TextFormField(
@@ -86,7 +99,7 @@ class _ConnexionState extends State<Connexion> {
                     onPressed: () {
                       if (emailKey.currentState.validate() &&
                           passwordKey.currentState.validate()) {
-                        auth.signInWithEmailAndPassword(
+                        auth.createUserWithEmailAndPassword(
                             email: _email, password: _password);
                         Navigator.push(context, new MaterialPageRoute(
                             builder: (BuildContext context) {
