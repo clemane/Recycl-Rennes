@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/widgets/home.dart';
@@ -15,6 +16,7 @@ class _ConnexionState extends State<Connexion> {
   final GlobalKey<FormState> emailKey = GlobalKey<FormState>();
   final GlobalKey<FormState> passwordKey = GlobalKey<FormState>();
   final auth = FirebaseAuth.instance;
+  final firestoreInstance = FirebaseFirestore.instance;
 
   UserModel userModel;
 
@@ -89,6 +91,7 @@ class _ConnexionState extends State<Connexion> {
                           passwordKey.currentState.validate()) {
                         auth.signInWithEmailAndPassword(
                             email: _email, password: _password);
+
                         Navigator.push(context, new MaterialPageRoute(
                             builder: (BuildContext context) {
                           return new Home();
