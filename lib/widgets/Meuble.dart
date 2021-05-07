@@ -60,7 +60,7 @@ class _MeubleState extends State<Meuble> {
                         onPressed: () {
                           Navigator.push(context, new MaterialPageRoute(
                               builder: (BuildContext context) {
-                            return new Annonce(post["name"], 3);
+                            return new Annonce(post["name"], 2);
                           }));
                         }),
                   ],

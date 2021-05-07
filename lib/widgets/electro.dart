@@ -60,7 +60,7 @@ class _ElectroState extends State<Electro> {
                         onPressed: () {
                           Navigator.push(context, new MaterialPageRoute(
                               builder: (BuildContext context) {
-                            return new Annonce(post["name"], 2);
+                            return new Annonce(post["name"], 1);
                           }));
                         }),
                   ],
