@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'CategorieScroller.dart';
 import 'Meuble_Data.dart';
+import 'annonce.dart';
 
 class Meuble extends StatefulWidget {
   @override
@@ -53,7 +54,15 @@ class _MeubleState extends State<Meuble> {
                           fontSize: 15,
                           color: Colors.black,
                           fontWeight: FontWeight.bold),
-                    )
+                    ),
+                    IconButton(
+                        icon: Icon(Icons.info, color: Colors.black),
+                        onPressed: () {
+                          Navigator.push(context, new MaterialPageRoute(
+                              builder: (BuildContext context) {
+                            return new Annonce(post["name"], 3);
+                          }));
+                        }),
                   ],
                 ),
                 Image.asset(

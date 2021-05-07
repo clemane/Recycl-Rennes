@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'constants.dart';
 import 'CategorieScroller.dart';
-import 'profile.dart';
 import 'Autre_Data.dart';
+import 'annonce.dart';
 
 class Autre extends StatefulWidget {
   @override
@@ -55,7 +54,15 @@ class _AutreState extends State<Autre> {
                           fontSize: 15,
                           color: Colors.black,
                           fontWeight: FontWeight.bold),
-                    )
+                    ),
+                    IconButton(
+                        icon: Icon(Icons.info, color: Colors.black),
+                        onPressed: () {
+                          Navigator.push(context, new MaterialPageRoute(
+                              builder: (BuildContext context) {
+                            return new Annonce(post["name"], 4);
+                          }));
+                        }),
                   ],
                 ),
                 Image.asset(

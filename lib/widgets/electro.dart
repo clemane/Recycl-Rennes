@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'CategorieScroller.dart';
 import 'package:flutter/cupertino.dart';
 import 'Electro_Data.dart';
+import 'annonce.dart';
 
 class Electro extends StatefulWidget {
   @override
@@ -53,7 +54,15 @@ class _ElectroState extends State<Electro> {
                           fontSize: 15,
                           color: Colors.black,
                           fontWeight: FontWeight.bold),
-                    )
+                    ),
+                    IconButton(
+                        icon: Icon(Icons.info, color: Colors.black),
+                        onPressed: () {
+                          Navigator.push(context, new MaterialPageRoute(
+                              builder: (BuildContext context) {
+                            return new Annonce(post["name"], 2);
+                          }));
+                        }),
                   ],
                 ),
                 Image.asset(
