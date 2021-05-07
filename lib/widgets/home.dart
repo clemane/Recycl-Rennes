@@ -64,7 +64,7 @@ class _Home extends State<Home> {
                     ),
                     Image.asset(
                       "assets/images/${post["image"]}",
-                      height: 77,
+                      height: 70,
                       width: 300,
                     )
                   ],

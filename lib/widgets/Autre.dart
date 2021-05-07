@@ -68,7 +68,7 @@ class _AutreState extends State<Autre> {
                 Image.asset(
                   "assets/images/${post["image"]}",
                   height: double.infinity,
-                  width: 100,
+                  width: 80,
                 )
               ],
             ),
