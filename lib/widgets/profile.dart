@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/widgets/start.dart';
@@ -37,6 +38,20 @@ void getProfilData() {
 }
 
 class _ProfileState extends State<Profile> {
+  final firestoreInstance = FirebaseFirestore.instance;
+  var firebaseUser = FirebaseAuth.instance.currentUser;
+
+  /*  String getName() {
+    firestoreInstance
+        .collection("users")
+        .doc(firebaseUser.email)
+        .get()
+        .then((value) => null)
+      print(value.data()["name"]);
+      return value.data()["name"];
+    });
+  } */
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -71,7 +86,7 @@ class _ProfileState extends State<Profile> {
             padding: EdgeInsets.only(top: 15.0),
           ),
           Text(
-            'MR LEMANE',
+            getName(),
             style: TextStyle(fontSize: 25),
           )
         ]),
