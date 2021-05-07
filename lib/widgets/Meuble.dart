@@ -68,6 +68,7 @@ class _MeubleState extends State<Meuble> {
                 Image.asset(
                   "assets/images/${post["image"]}",
                   height: double.infinity,
+                  width: 100,
                 )
               ],
             ),

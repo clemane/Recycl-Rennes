@@ -68,6 +68,7 @@ class _ElectroState extends State<Electro> {
                 Image.asset(
                   "assets/images/${post["image"]}",
                   height: double.infinity,
+                  width: 100,
                 )
               ],
             ),

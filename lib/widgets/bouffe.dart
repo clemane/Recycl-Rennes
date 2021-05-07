@@ -68,6 +68,7 @@ class _BouffeState extends State<Bouffe> {
                 Image.asset(
                   "assets/images/${post["image"]}",
                   height: double.infinity,
+                  width: 100,
                 )
               ],
             ),

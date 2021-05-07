@@ -46,11 +46,11 @@ class _Home extends State<Home> {
                     Text(
                       post["name"],
                       style: const TextStyle(
-                          fontSize: 28, fontWeight: FontWeight.bold),
+                          fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     Text(
                       post["brand"],
-                      style: const TextStyle(fontSize: 17, color: Colors.grey),
+                      style: const TextStyle(fontSize: 13, color: Colors.grey),
                     ),
                     SizedBox(
                       height: 5,
@@ -58,15 +58,16 @@ class _Home extends State<Home> {
                     Text(
                       "\ ${post["price"]}",
                       style: const TextStyle(
-                          fontSize: 25,
+                          fontSize: 10,
                           color: Colors.black,
                           fontWeight: FontWeight.bold),
+                    ),
+                    Image.asset(
+                      "assets/images/${post["image"]}",
+                      height: 77,
+                      width: 300,
                     )
                   ],
-                ),
-                Image.asset(
-                  "assets/images/${post["image"]}",
-                  height: double.infinity,
                 )
               ],
             ),
