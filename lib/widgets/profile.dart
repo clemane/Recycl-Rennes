@@ -86,7 +86,7 @@ class _ProfileState extends State<Profile> {
             padding: EdgeInsets.only(top: 15.0),
           ),
           Text(
-            getName(),
+            'MR LEMANE',
             style: TextStyle(fontSize: 25),
           )
         ]),
