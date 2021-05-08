@@ -19,6 +19,7 @@ class _AjoutState extends State<Ajout> {
   bool secret = true;
   final RegExp emailRegex = RegExp(r"[a-z0-9\._-]+@[a-z0-9\._-]+\.[a-z]+");
   final GlobalKey<FormState> titleKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> adresseKey = GlobalKey<FormState>();
   final GlobalKey<FormState> descriptionKey = GlobalKey<FormState>();
   final auth = FirebaseAuth.instance;
   final firestoreInstance = FirebaseFirestore.instance;
@@ -27,6 +28,7 @@ class _AjoutState extends State<Ajout> {
 
   String _titre = '';
   String _description = '';
+  String _adresse = '';
   String nameAnnonce = '';
   String collection = "";
   void setupAnnonce() {
@@ -81,6 +83,23 @@ class _AjoutState extends State<Ajout> {
                           border: OutlineInputBorder()),
                     )),
                 SizedBox(
+                  height: 50,
+                ),
+                Text(
+                  'Adresse et/ou Mail ',
+                  style: TextStyle(fontSize: 20),
+                ),
+                Form(
+                    key: adresseKey,
+                    child: TextFormField(
+                      onChanged: (value) => setState(() => _adresse = value),
+                      validator: (value) =>
+                          value.length < 1 ? 'Entrez une adresse' : null,
+                      decoration: InputDecoration(
+                          hintText: 'Entrez une adresse',
+                          border: OutlineInputBorder()),
+                    )),
+                SizedBox(
                   height: 30,
                 ),
                 Text(
@@ -106,6 +125,7 @@ class _AjoutState extends State<Ajout> {
                         .doc("$_titre")
                         .set({
                       "titre": "$_titre",
+                      "adresse": "$_adresse",
                       "description": "$_description",
                     });
                     Navigator.push(context,
