@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/widgets/start.dart';
 import 'profile_data.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -40,20 +41,25 @@ void getProfilData() {
 class _ProfileState extends State<Profile> {
   final firestoreInstance = FirebaseFirestore.instance;
   var firebaseUser = FirebaseAuth.instance.currentUser;
-
-  /*  String getName() {
-    firestoreInstance
-        .collection("users")
-        .doc(firebaseUser.email)
-        .get()
-        .then((value) => null)
-      print(value.data()["name"]);
-      return value.data()["name"];
+  CollectionReference users_collection = FirebaseFirestore.instance.collection('users');
+  
+  String current_name = '';
+  void get_name() {
+    users_collection.doc(firebaseUser.email)
+      .get()
+      .then((DocumentSnapshot docsnap) {
+      if (docsnap.exists) {
+        current_name = docsnap['name'];
+      }
+      else {
+        print('Document doesn\'t exist!');
+      }
     });
-  } */
+  }
 
   @override
   Widget build(BuildContext context) {
+    get_name();
     return new Scaffold(
       appBar: new AppBar(
         title: Text('Votre profil'),
@@ -86,7 +92,14 @@ class _ProfileState extends State<Profile> {
             padding: EdgeInsets.only(top: 15.0),
           ),
           Text(
-            'MR LEMANE',
+            current_name,
+            style: TextStyle(fontSize: 25),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            firebaseUser.email,
             style: TextStyle(fontSize: 25),
           )
         ]),
