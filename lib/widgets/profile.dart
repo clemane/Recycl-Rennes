@@ -74,7 +74,7 @@ class _ProfileState extends State<Profile> {
         title: Text('Votre profil'),
         actions: [
           IconButton(
-            icon: Icon(Icons.settings),
+            icon: Icon(Icons.backspace_rounded),
             onPressed: () {
               FirebaseAuth.instance.signOut();
               print('Déconnexion...');
@@ -95,21 +95,21 @@ class _ProfileState extends State<Profile> {
               padding: EdgeInsets.only(top: 20.0),
               child: CircleAvatar(
                 radius: 70.0,
-                backgroundImage: AssetImage('assets/images/LEMANE.jpg'),
+                backgroundImage: AssetImage('assets/images/profil.jpg'),
               )),
           Padding(
             padding: EdgeInsets.only(top: 15.0),
           ),
           Text(
-            this.current_name,
-            style: TextStyle(fontSize: 25),
+            "Nom d'utilisateur : ${this.current_name}",
+            style: TextStyle(fontSize: 20),
           ),
           SizedBox(
             height: 20,
           ),
           Text(
-            firebaseUser.email,
-            style: TextStyle(fontSize: 25),
+            "Email : ${firebaseUser.email}",
+            style: TextStyle(fontSize: 20),
           )
         ]),
       ),
