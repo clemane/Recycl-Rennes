@@ -5,6 +5,8 @@ import 'CategorieScroller.dart';
 import 'Meuble_Data.dart';
 import 'annonce.dart';
 import 'profile.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Meuble extends StatefulWidget {
   @override
@@ -20,6 +22,15 @@ class _MeubleState extends State<Meuble> {
   void getPostsData() {
     List<dynamic> responseList = MEUBLE_DATA;
     List<Widget> listItems = [];
+    FirebaseFirestore.instance
+        .collection('meubles')
+        .get()
+        .then((QuerySnapshot querySnapshot) {
+      querySnapshot.docs.forEach((doc) {
+        print(doc["titre"]);
+      });
+    });
+
     responseList.forEach((post) {
       listItems.add(Container(
           height: 150,
