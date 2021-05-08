@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'CategorieScroller.dart';
 import 'Meuble_Data.dart';
 import 'annonce.dart';
+import 'profile.dart';
 
 class Meuble extends StatefulWidget {
   @override
@@ -142,6 +143,14 @@ class _MeubleState extends State<Meuble> {
           ],
         ),
       ),
+      floatingActionButton: new FloatingActionButton(
+          onPressed: () {
+            Navigator.push(context,
+                new MaterialPageRoute(builder: (BuildContext context) {
+              return new Profile();
+            }));
+          },
+          child: new Icon(Icons.add)),
     );
   }
 }

@@ -55,8 +55,16 @@ class _AnnonceState extends State<Annonce> {
         ),
         body: new Container(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Image.asset("assets/images/$img"),
+              SizedBox(
+                height: 40,
+              ),
+              Image.asset(
+                "assets/images/$img",
+                height: MediaQuery.of(context).size.height / 2,
+                width: 600,
+              ),
               SizedBox(
                 height: 20,
               ),
@@ -64,7 +72,7 @@ class _AnnonceState extends State<Annonce> {
               SizedBox(
                 height: 20,
               ),
-              Text("Adresse mail du donateur : $price"),
+              Text("Adresse du donateur : $price"),
             ],
           ),
         ));

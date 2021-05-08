@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'constants.dart';
 import 'CategorieScroller.dart';
 import 'annonce.dart';
+import 'profile.dart';
 
 class Bouffe extends StatefulWidget {
   @override
@@ -142,6 +143,14 @@ class _BouffeState extends State<Bouffe> {
           ],
         ),
       ),
+      floatingActionButton: new FloatingActionButton(
+          onPressed: () {
+            Navigator.push(context,
+                new MaterialPageRoute(builder: (BuildContext context) {
+              return new Profile();
+            }));
+          },
+          child: new Icon(Icons.add)),
     );
   }
 }
