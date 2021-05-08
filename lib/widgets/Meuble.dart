@@ -148,7 +148,7 @@ class _MeubleState extends State<Meuble> {
           onPressed: () {
             Navigator.push(context,
                 new MaterialPageRoute(builder: (BuildContext context) {
-              return new Ajout();
+              return new Ajout(2);
             }));
           },
           child: new Icon(Icons.add)),

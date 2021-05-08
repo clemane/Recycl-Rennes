@@ -5,7 +5,12 @@ import 'package:flutter_application_2/widgets/home.dart';
 import 'package:flutter_application_2/widgets/start.dart';
 import 'package:flutter_application_2/widgets/userModel.dart';
 
+int num;
+
 class Ajout extends StatefulWidget {
+  Ajout(int n) {
+    num = n;
+  }
   @override
   _AjoutState createState() => _AjoutState();
 }
@@ -22,21 +27,37 @@ class _AjoutState extends State<Ajout> {
 
   String _titre = '';
   String _description = '';
+  String nameAnnonce = '';
+  String collection = "";
+  void setupAnnonce() {
+    if (num == 0) {
+      nameAnnonce = 'e nourriture';
+      collection = "nourriture";
+    } else if (num == 1) {
+      nameAnnonce = '\'électroménager';
+      collection = "electromenager";
+    } else if (num == 2) {
+      nameAnnonce = 'e meubles';
+      collection = "meubles";
+    } else {
+      nameAnnonce = 'e type Autre';
+      collection = "autre";
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    setupAnnonce();
     return SafeArea(
         child: Scaffold(
             appBar: AppBar(
-              leading: IconButton(
-                  icon: Icon(Icons.arrow_left),
-                  onPressed: () {
-                    Navigator.push(context,
-                        new MaterialPageRoute(builder: (BuildContext context) {
-                      return Start();
-                    }));
-                  }),
-              title: Text('Ajouter une annonce'),
+              title: Text(
+                'Ajouter une annonce d${nameAnnonce}',
+                style: const TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
+              ),
             ),
             body: SingleChildScrollView(
                 child: Column(
@@ -55,7 +76,9 @@ class _AjoutState extends State<Ajout> {
                       onChanged: (value) => setState(() => _titre = value),
                       validator: (value) =>
                           value.length < 1 ? 'Entrez un titre' : null,
-                      decoration: InputDecoration(border: OutlineInputBorder()),
+                      decoration: InputDecoration(
+                          hintText: 'Entrez un titre',
+                          border: OutlineInputBorder()),
                     )),
                 SizedBox(
                   height: 30,
@@ -67,13 +90,31 @@ class _AjoutState extends State<Ajout> {
                 Form(
                     key: descriptionKey,
                     child: TextFormField(
-                      maxLines: 8,
+                      maxLines: 5,
                       onChanged: (value) =>
                           setState(() => _description = value),
                       validator: (value) =>
                           value.length < 1 ? 'Entrez un titre' : null,
-                      decoration: InputDecoration(border: OutlineInputBorder()),
+                      decoration: InputDecoration(
+                          hintText: 'Entrez une description',
+                          border: OutlineInputBorder()),
                     )),
+                ElevatedButton(
+                  onPressed: () {
+                    firestoreInstance
+                        .collection(collection)
+                        .doc("$_titre")
+                        .set({
+                      "titre": "$_titre",
+                      "description": "$_description",
+                    });
+                    Navigator.push(context,
+                        new MaterialPageRoute(builder: (BuildContext context) {
+                      return new Home();
+                    }));
+                  },
+                  child: Text('CONTINUER'),
+                ),
               ],
             ))));
   }

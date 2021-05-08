@@ -148,7 +148,7 @@ class _AutreState extends State<Autre> {
           onPressed: () {
             Navigator.push(context,
                 new MaterialPageRoute(builder: (BuildContext context) {
-              return new Ajout();
+              return new Ajout(4);
             }));
           },
           child: new Icon(Icons.add)),

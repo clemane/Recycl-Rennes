@@ -148,7 +148,7 @@ class _BouffeState extends State<Bouffe> {
           onPressed: () {
             Navigator.push(context,
                 new MaterialPageRoute(builder: (BuildContext context) {
-              return new Ajout();
+              return new Ajout(0);
             }));
           },
           child: new Icon(Icons.add)),

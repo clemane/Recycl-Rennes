@@ -148,7 +148,7 @@ class _ElectroState extends State<Electro> {
           onPressed: () {
             Navigator.push(context,
                 new MaterialPageRoute(builder: (BuildContext context) {
-              return new Ajout();
+              return new Ajout(1);
             }));
           },
           child: new Icon(Icons.add)),
