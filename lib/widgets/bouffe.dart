@@ -41,7 +41,7 @@ class _BouffeState extends State<Bouffe> {
                     Text(
                       post["name"],
                       style: const TextStyle(
-                          fontSize: 28, fontWeight: FontWeight.bold),
+                          fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                     Text(
                       post["brand"],

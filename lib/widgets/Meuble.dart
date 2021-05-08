@@ -52,7 +52,7 @@ class _MeubleState extends State<Meuble> {
                     Text(
                       post["name"],
                       style: const TextStyle(
-                          fontSize: 28, fontWeight: FontWeight.bold),
+                          fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                     Text(
                       post["brand"],
