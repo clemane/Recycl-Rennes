@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_application_2/widgets/ajout.dart';
 import 'constants.dart';
 import 'CategorieScroller.dart';
 import 'annonce.dart';
@@ -147,7 +148,7 @@ class _BouffeState extends State<Bouffe> {
           onPressed: () {
             Navigator.push(context,
                 new MaterialPageRoute(builder: (BuildContext context) {
-              return new Profile();
+              return new Ajout();
             }));
           },
           child: new Icon(Icons.add)),

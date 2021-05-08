@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/widgets/ajout.dart';
 import 'CategorieScroller.dart';
 import 'package:flutter/cupertino.dart';
 import 'Electro_Data.dart';
@@ -147,7 +148,7 @@ class _ElectroState extends State<Electro> {
           onPressed: () {
             Navigator.push(context,
                 new MaterialPageRoute(builder: (BuildContext context) {
-              return new Profile();
+              return new Ajout();
             }));
           },
           child: new Icon(Icons.add)),

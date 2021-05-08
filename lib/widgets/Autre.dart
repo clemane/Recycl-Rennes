@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_application_2/widgets/ajout.dart';
 import 'CategorieScroller.dart';
 import 'Autre_Data.dart';
 import 'annonce.dart';
@@ -147,7 +148,7 @@ class _AutreState extends State<Autre> {
           onPressed: () {
             Navigator.push(context,
                 new MaterialPageRoute(builder: (BuildContext context) {
-              return new Profile();
+              return new Ajout();
             }));
           },
           child: new Icon(Icons.add)),

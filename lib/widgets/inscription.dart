@@ -103,7 +103,6 @@ class _InscriptionState extends State<Inscription> {
                           passwordKey.currentState.validate()) {
                         auth.createUserWithEmailAndPassword(
                             email: _email, password: _password);
-                        var firebaseUser = FirebaseAuth.instance.currentUser;
                         firestoreInstance
                             .collection("users")
                             .doc("$_email")
@@ -111,7 +110,6 @@ class _InscriptionState extends State<Inscription> {
                           "email": "$_email",
                           "name": "$_pseudo",
                         });
-                        print(firebaseUser.uid);
                         Navigator.push(context, new MaterialPageRoute(
                             builder: (BuildContext context) {
                           return new Home();
