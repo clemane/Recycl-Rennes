@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_application_2/widgets/TripleString.dart';
 import 'package:flutter_application_2/widgets/ajout.dart';
 import 'constants.dart';
 import 'CategorieScroller.dart';
 import 'annonce.dart';
 import 'profile.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Bouffe extends StatefulWidget {
   @override
@@ -16,6 +18,78 @@ class _BouffeState extends State<Bouffe> {
   ScrollController controller = ScrollController();
   bool closeTopContainer = false;
   double topContainer = 0;
+  TripleString test;
+
+  void getDataFire() {
+    List<Widget> listItems = [];
+    FirebaseFirestore.instance
+        .collection('nourriture')
+        .get()
+        .then((QuerySnapshot querySnapshot) {
+      querySnapshot.docs.forEach((doc) {
+        setState(() {
+          TripleString t = new TripleString(
+              doc["titre"], doc["description"], doc["adresse"]);
+          listItems.add(Container(
+              height: 150,
+              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.black.withAlpha(100), blurRadius: 10.0),
+                  ]),
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          doc["titre"],
+                          style: const TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          doc["description"],
+                          style:
+                              const TextStyle(fontSize: 17, color: Colors.grey),
+                        ),
+                        Text(
+                          doc["adresse"],
+                          style: const TextStyle(
+                              fontSize: 15,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        IconButton(
+                            icon: Icon(Icons.info, color: Colors.black),
+                            iconSize: 20,
+                            onPressed: () {
+                              Navigator.push(context, new MaterialPageRoute(
+                                  builder: (BuildContext context) {
+                                return new Annonce(t, 2);
+                              }));
+                            }),
+                      ],
+                    ),
+                    Image.asset(
+                      "assets/images/cross.png",
+                      height: double.infinity,
+                      width: 80,
+                    )
+                  ],
+                ),
+              )));
+          itemsData = listItems;
+        });
+      });
+    });
+  }
 
   void getPostsData() {
     List<dynamic> responseList = FOOD_DATA;
@@ -84,7 +158,7 @@ class _BouffeState extends State<Bouffe> {
   @override
   void initState() {
     super.initState();
-    getPostsData();
+    getDataFire();
     controller.addListener(() {
       double value = controller.offset / 119;
 

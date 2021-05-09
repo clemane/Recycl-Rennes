@@ -21,10 +21,6 @@ class _StartState extends State<Start> {
             "Recycl'Rennes",
             style: TextStyle(fontSize: 40),
           ),
-          Text(
-            "Slogan qui fait BG",
-            style: TextStyle(fontSize: 20),
-          ),
           SizedBox(
             height: 30,
           ),

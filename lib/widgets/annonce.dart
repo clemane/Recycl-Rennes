@@ -4,12 +4,13 @@ import 'constants.dart';
 import 'Autre_Data.dart';
 import 'Meuble_Data.dart';
 import 'Electro_Data.dart';
+import 'TripleString.dart';
 
-String n;
+TripleString n;
 int dat;
 
 class Annonce extends StatefulWidget {
-  Annonce(String annonce, int data) {
+  Annonce(TripleString annonce, int data) {
     n = annonce;
     dat = data;
   }
@@ -44,10 +45,9 @@ class _AnnonceState extends State<Annonce> {
   @override
   Widget build(BuildContext context) {
     getAnnonce();
-    String name = listAdd[0];
-    String brand = listAdd[1];
-    String price = listAdd[2];
-    String img = listAdd[3];
+    String name = n.x;
+    String brand = n.y;
+    String price = n.z;
 
     return new Scaffold(
         appBar: new AppBar(
@@ -61,14 +61,14 @@ class _AnnonceState extends State<Annonce> {
                 height: 40,
               ),
               Image.asset(
-                "assets/images/$img",
+                "assets/images/cross.png",
                 height: MediaQuery.of(context).size.height / 2,
                 width: 600,
               ),
               SizedBox(
                 height: 20,
               ),
-              Text("Nom du donateur : $brand"),
+              Text("Description : $brand"),
               SizedBox(
                 height: 20,
               ),
