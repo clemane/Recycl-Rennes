@@ -175,12 +175,6 @@ class _BouffeState extends State<Bouffe> {
     return new Scaffold(
       appBar: new AppBar(
         title: Text('Nourriture'),
-        actions: [
-          Icon(Icons.settings),
-          Padding(
-            padding: EdgeInsets.only(right: 10),
-          ),
-        ],
       ),
       body: new Container(
         child: Column(

@@ -183,12 +183,6 @@ class _MeubleState extends State<Meuble> {
     return new Scaffold(
       appBar: new AppBar(
         title: Text('Meubles'),
-        actions: [
-          Icon(Icons.settings),
-          Padding(
-            padding: EdgeInsets.only(right: 10),
-          ),
-        ],
       ),
       body: new Container(
         child: Column(

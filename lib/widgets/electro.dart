@@ -174,12 +174,6 @@ class _ElectroState extends State<Electro> {
     return new Scaffold(
       appBar: new AppBar(
         title: Text('Electroménager'),
-        actions: [
-          Icon(Icons.settings),
-          Padding(
-            padding: EdgeInsets.only(right: 10),
-          ),
-        ],
       ),
       body: new Container(
         child: Column(

@@ -174,12 +174,6 @@ class _AutreState extends State<Autre> {
     return new Scaffold(
       appBar: new AppBar(
         title: Text('Autre'),
-        actions: [
-          Icon(Icons.settings),
-          Padding(
-            padding: EdgeInsets.only(right: 10),
-          ),
-        ],
       ),
       body: new Container(
         child: Column(
