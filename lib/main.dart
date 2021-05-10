@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
+      //lance l'app
       title: "Recycl'Rennes",
       theme: new ThemeData(primarySwatch: Colors.blueGrey),
       debugShowCheckedModeBanner: false,
